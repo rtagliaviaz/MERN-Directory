@@ -23,12 +23,5 @@
   "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
-  },
-
-  "development": [
-    "last 1 chrome version",
-    "last 1 firefox version",
-    "last 1 safari version"
-  ]
-}
+  }
 }
