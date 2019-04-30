@@ -1,6 +1,9 @@
 {
   "name": "mern-pdirectory",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.10.1"
+  },
   "description": "phone directory",
   "main": "server.js",
   "scripts": {
@@ -9,7 +12,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "Rtagliavia",
   "license": "ISC",
