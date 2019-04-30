@@ -58,7 +58,7 @@ class ItemModal extends React.Component {
           color="dark"
           style={{marginBottom: '2rem'}}
           onClick={this.toggle}
-        >Add Place</Button>
+        >New Place</Button>
 
         <Modal
           isOpen={this.state.modal}
@@ -68,7 +68,7 @@ class ItemModal extends React.Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="item">Item</Label>
+                <Label for="item">New Place</Label>
                 <Input
                   type="text"
                   name="name"
