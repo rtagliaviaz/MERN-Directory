@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://appu:appu@directorio-zvzxe.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "appuSecret"
+}

@@ -11,6 +11,7 @@ import {
   } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
+import PropTypes from 'prop-types';
 
 
 class ItemModal extends React.Component {
@@ -19,6 +20,10 @@ class ItemModal extends React.Component {
     name: '',
     direccion: '',
     telf: ''
+  }
+
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
   }
 
   toggle = () => {
@@ -54,11 +59,14 @@ class ItemModal extends React.Component {
   render(){
     return(
       <div>
-        <Button
-          color="dark"
-          style={{marginBottom: '2rem'}}
-          onClick={this.toggle}
-        >New Place</Button>
+        {this.props.isAuthenticated ?
+          <Button
+            color="dark"
+            style={{marginBottom: '2rem'}}
+            onClick={this.toggle}
+          >New Place</Button>
+        : <h4 className="mb-3 ml-4">Please log in to manage items</h4>}
+
 
         <Modal
           isOpen={this.state.modal}
@@ -69,6 +77,7 @@ class ItemModal extends React.Component {
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for="item">New Place</Label>
+                <br/>
                 <Input
                   type="text"
                   name="name"
@@ -76,6 +85,7 @@ class ItemModal extends React.Component {
                   placeholder="Escriba el nombre del lugar"
                   onChange={this.onChange}
                 />
+                <br/>
                 <Input
                   type="text"
                   name="direccion"
@@ -83,6 +93,7 @@ class ItemModal extends React.Component {
                   placeholder="direccion"
                   onChange={this.onChange}
                 />
+                <br/>
                 <Input
                   type="text"
                   name="telf"
@@ -105,7 +116,8 @@ class ItemModal extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  item: state.item
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { addItem })(ItemModal);

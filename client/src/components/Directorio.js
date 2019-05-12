@@ -10,6 +10,11 @@ import PropTypes from 'prop-types';
 
 
 class Directorio extends React.Component {
+  static propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
+  }
 
   componentDidMount() {
     this.props.getItems();
@@ -24,8 +29,6 @@ class Directorio extends React.Component {
     const { items } = this.props.item;
     return(
       <Container>
-
-
         <ListGroup>
           <TransitionGroup className="directorio-list">
             {items.map(({ _id, name, direccion, telf }) => (
@@ -34,6 +37,7 @@ class Directorio extends React.Component {
                   Nombre: {name}<br/>
                   Direccion: {direccion}<br/>
                   Telefono: {telf}<br/>
+                  { this.props.isAuthenticated ?
                   <Button
                     className="remove-btn"
                     color="danger"
@@ -41,6 +45,7 @@ class Directorio extends React.Component {
                     onClick={this.onDeleteClick.bind(this, _id)}
                   >Delete &times;
                   </Button>
+                  : null}
                 </ListGroupItem>
               </CSSTransition>
             ))}
@@ -51,13 +56,15 @@ class Directorio extends React.Component {
   }
 }
 
-Directorio.propTypes = {
-  getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired
-}
+// another way to do it
+// Directorio.propTypes = {
+//   getItems: PropTypes.func.isRequired,
+//   item: PropTypes.object.isRequired
+// }
 
 const mapStateToProps = (state) => ({
-  item: state.item
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { getItems, deleteItem })(Directorio);
