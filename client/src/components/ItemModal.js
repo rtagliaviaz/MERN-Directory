@@ -65,7 +65,7 @@ class ItemModal extends React.Component {
             style={{marginBottom: '2rem'}}
             onClick={this.toggle}
           >New Place</Button>
-        : <h4 className="mb-3 ml-4">Please log in to manage items</h4>}
+        : <h4 className="mb-3 ml-4">Please log in to manage the directory</h4>}
 
 
         <Modal
@@ -82,7 +82,7 @@ class ItemModal extends React.Component {
                   type="text"
                   name="name"
                   id="item"
-                  placeholder="Escriba el nombre del lugar"
+                  placeholder="Name of the Place"
                   onChange={this.onChange}
                 />
                 <br/>
@@ -90,7 +90,7 @@ class ItemModal extends React.Component {
                   type="text"
                   name="direccion"
                   id="item"
-                  placeholder="direccion"
+                  placeholder="Address"
                   onChange={this.onChange}
                 />
                 <br/>
@@ -98,7 +98,7 @@ class ItemModal extends React.Component {
                   type="text"
                   name="telf"
                   id="item"
-                  placeholder="Telefono"
+                  placeholder="Phone Number"
                   onChange={this.onChange}
                 />
                 <Button

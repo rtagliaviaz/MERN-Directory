@@ -60,7 +60,7 @@ class AppNavbar extends React.Component {
       <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <div className="container">
-            <NavbarBrand href="/">Directorio</NavbarBrand>
+            <NavbarBrand href="/">Directory</NavbarBrand>
             <NavbarToggler Onclick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
